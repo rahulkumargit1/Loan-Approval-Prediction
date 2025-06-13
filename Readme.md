@@ -1,68 +1,65 @@
 Loan Approval Prediction
-This project is a web-based application that predicts whether a loan application will be approved or rejected based on applicant data. It uses a logistic regression model trained on a loan approval dataset and is deployed locally using a Flask backend and a modern HTML/CSS/JavaScript frontend.
-
+<div align="center"> <img src="https://github.com/rahulkumargit1/acne-classification-system/blob/main/python.jpg" alt="Rahul Kumar's GitHub Cover" style="width: 100%; max-width: 800px; height: auto; border-radius: 10px;"> </div>
+This web-based application predicts whether a loan application will be approved or rejected based on applicant data. It uses a logistic regression model trained on a loan approval dataset, with a Flask backend and a modern HTML/CSS/JavaScript frontend.
 Project Structure
 loan-approval-prediction/
-├── app.py                    # Flask backend API
-├── requirements.txt          # Python dependencies
-├── static/                   # Frontend files
-│   ├── index.html            # Main HTML page with input form
+├── app.py                          # Flask backend API
+├── requirements.txt                # Python dependencies
+├── static/                         # Frontend files
+│   ├── index.html                  # Main HTML page with input form
 │   ├── css/
-│   │   └── styles.css        # CSS styling for the frontend
+│   │   └── styles.css              # CSS styling for the frontend
 │   └── js/
-│       └── script.js         # JavaScript for form submission and API interaction
-├── models/                   # Trained model and preprocessor files
-│   ├── loan_approval_model.pkl  # Trained logistic regression model
-│   └── preprocessor.pkl        # Preprocessor for feature scaling and encoding
+│       └── script.js               # JavaScript for form submission and API interaction
+├── models/                         # Trained model and preprocessor files
+│   ├── loan_approval_model.pkl     # Trained logistic regression model
+│   └── preprocessor.pkl            # Preprocessor for feature scaling and encoding
 ├── data/
-│   └── loan_approval_dataset.csv  # Dataset for training the model
+│   └── loan_approval_dataset.csv   # Dataset for training the model
 ├── notebooks/
 │   └── loan-approval-prediction-analysis.ipynb  # Jupyter notebook for data analysis and model training
-├── README.md                 # Project documentation
-└── .gitignore                # Git ignore file
+├── README.md                       # Project documentation
+└── .gitignore                      # Git ignore file
 
 Features
 
-Data Preprocessing: Handles numerical feature scaling and categorical feature encoding using StandardScaler and OneHotEncoder.
-Model Training: Uses a logistic regression model to predict loan approval (Approved or Rejected).
-Web Interface: A modern, responsive form with a gradient background, organized sections, and hover effects.
-API Endpoint: Flask API at /predict for processing input data and returning predictions with probabilities.
-Visualization: Notebook includes confusion matrix and ROC curve for model evaluation.
+Data Preprocessing: Scales numerical features using StandardScaler and encodes categorical features with OneHotEncoder.
+Model Training: Employs a logistic regression model to predict loan approval status (Approved or Rejected).
+Web Interface: Features a responsive form with a gradient background, organized sections, and hover effects.
+API Endpoint: Flask API at /predict processes input data and returns predictions with probabilities.
+Visualization: Includes a Jupyter notebook with a confusion matrix and ROC curve for model evaluation.
 
 Prerequisites
 
 Python 3.12 or later
-Jupyter Notebook for running the analysis notebook
+Jupyter Notebook (for running the analysis notebook)
 Git (optional, for cloning the repository)
-A web browser (e.g., Chrome, Firefox) to access the frontend
+Web browser (e.g., Chrome, Firefox) to access the frontend
 
 Setup Instructions
-1. Clone the Repository
-git clone <repository-url>
+
+Clone the Repository (or copy project files to E:\dhanush):
+git clone https://github.com/rahulkumargit1/Loan-Approval-Prediction.git
 cd loan-approval-prediction
 
-Note: Replace <repository-url> with the actual URL of your repository, or copy the project files to your local machine if not using Git. For this setup, assume the project is at E:\dhanush.
-2. Create a Virtual Environment
-Create and activate a virtual environment to isolate dependencies:
+
+Create a Virtual Environment:Create and activate a virtual environment:
 python -m venv "E:\COLLEGEPROJECT\College Project\envs\MachineLearning"
 
+Activate (Windows PowerShell):
+& "E:\COLLEGEPROJECT\College Project\envs\MachineLearning\Scripts\Activate.ps1"
 
-Windows (PowerShell):& "E:\COLLEGEPROJECT\College Project\envs\MachineLearning\Scripts\Activate.ps1"
 
-
-
-3. Create Directories
-Ensure the required directories exist:
+Create Directories:Ensure the required directories exist:
 mkdir -p static/css static/js models data
 
-4. Place the Dataset
 
-Copy loan_approval_dataset.csv to the data/ directory at E:\dhanush\data.
-The dataset should have the following columns:
+Place the Dataset:Copy loan_approval_dataset.csv to E:\dhanush\data. The dataset should include:
+
 loan_id (optional, dropped during preprocessing)
-no_of_dependents (integer, e.g., 0–5)
-education (categorical: Graduate or Not Graduate)
-self_employed (categorical: Yes or No)
+no_of_dependents (integer, 0–5)
+education (Graduate or Not Graduate)
+self_employed (Yes or No)
 income_annum (float, annual income in INR)
 loan_amount (float, loan amount in INR)
 loan_term (integer, loan term in years)
@@ -71,37 +68,33 @@ residential_assets_value (float, INR)
 commercial_assets_value (float, INR)
 luxury_assets_value (float, INR)
 bank_asset_value (float, INR)
-loan_status (categorical: Approved or Rejected)
+loan_status (Approved or Rejected)
 
 
-
-5. Install Dependencies
-Install the required packages within the virtual environment:
+Install Dependencies:Install required packages:
 pip install -r requirements.txt
 
-The requirements.txt contains:
+Contents of requirements.txt:
 flask==2.3.3
 pandas==2.2.2
 numpy==1.26.4
 scikit-learn==1.5.1
 joblib==1.4.2
 
-To install Jupyter Notebook (if not already installed):
+Install Jupyter Notebook (if needed):
 pip install jupyter
 
-6. Train the Model
 
-Open notebooks/loan-approval-prediction-analysis.ipynb in Jupyter Notebook:jupyter notebook
+Train the Model:Open the Jupyter notebook:
+jupyter notebook
 
+Run all cells in notebooks/loan-approval-prediction-analysis.ipynb to:
 
-Run all cells to:
-Load and clean the dataset (handles whitespace and invalid loan_status values).
-Preprocess features using StandardScaler for numerical features and OneHotEncoder for categorical features.
+Load and clean the dataset.
+Preprocess features using StandardScaler and OneHotEncoder.
 Train a logistic regression model.
-Save the model and preprocessor to models/loan_approval_model.pkl and models/preprocessor.pkl.
+Save the model and preprocessor to models/loan_approval_model.pkl and models/preprocessor.pkl.Expected output:
 
-
-Expected output:
 Dataset shape: (4269, 13)
 Cleaned loan_status values: ['Approved' 'Rejected']
 Training shape: (3415, 11)
@@ -110,28 +103,23 @@ Accuracy: ~0.90–0.95
 Model and preprocessor saved successfully
 
 
-
-7. Run the Flask Backend
-Start the Flask API:
+Run the Flask Backend:Start the Flask API:
 python app.py
 
+Access at http://localhost:5000. Test with http://localhost:5000/ (returns {"message": "Loan Approval Prediction API is running"}).
 
-The API will be available at http://localhost:5000.
-Test the API by visiting http://localhost:5000/ (should return {"message": "Loan Approval Prediction API is running"}).
-
-8. Run the Frontend
-Serve the frontend files using Python’s HTTP server:
+Run the Frontend:Serve the frontend:
 python -m http.server 8000 --directory static --bind 127.0.0.1
 
+Open http://localhost:8000 in a browser.
 
-Open http://localhost:8000 in a web browser to access the input form.
 
 Usage
 
 Access the Web Interface:
 
 Navigate to http://localhost:8000.
-Fill out the form with applicant details, such as:
+Fill out the form with applicant details, e.g.:
 Number of Dependents: 2
 Education: Graduate
 Self Employed: No
@@ -145,17 +133,11 @@ Luxury Assets Value: 22700000
 Bank Asset Value: 8000000
 
 
+Click "Predict Loan Status" to see the result (e.g., Prediction: Approved (Probability: 92.34%)).
 
 
-Submit the Form:
-
-Click the "Predict Loan Status" button.
-The result will display below the form, e.g., Prediction: Approved (Probability of Approval: 92.34%).
-
-
-Test the API Directly (Optional):
-
-Use a tool like Postman or curl to send a POST request to http://localhost:5000/predict with JSON data:{
+Test the API Directly (Optional):Send a POST request to http://localhost:5000/predict with JSON:
+{
     "no_of_dependents": 2,
     "education": "Graduate",
     "self_employed": "No",
@@ -169,8 +151,8 @@ Use a tool like Postman or curl to send a POST request to http://localhost:5000/
     "bank_asset_value": 8000000
 }
 
-
-Expected response:{
+Expected response:
+{
     "status": "success",
     "prediction": "Approved",
     "probability": 0.9234
@@ -178,65 +160,41 @@ Expected response:{
 
 
 
-
-
 Troubleshooting
 
-FileNotFoundError for Dataset:
-Ensure data/loan_approval_dataset.csv exists at E:\dhanush\data.
-Update the path in the notebook if necessary (e.g., file_path = 'E:/dhanush/data/loan_approval_dataset.csv').
+FileNotFoundError for Dataset:Ensure data/loan_approval_dataset.csv is at E:\dhanush\data. Update the notebook path if needed (e.g., file_path = 'E:/dhanush/data/loan_approval_dataset.csv').
+
+ValueError: Input y contains NaN:Check df['loan_status'].unique() in the notebook. If unexpected values appear (e.g., ' Approved'), the notebook’s cleaning steps should handle them. Otherwise, add custom replacements.
+
+Model/Preprocessor Not Found:Verify models/loan_approval_model.pkl and models/preprocessor.pkl exist. Re-run the notebook to generate them.
+
+Frontend Errors:Check the browser console (F12 → Console). Ensure the Flask backend is running at http://localhost:5000.
+
+Low Model Accuracy:The model achieves ~0.90 accuracy. For better performance, try other models (e.g., Random Forest) or tune hyperparameters in the notebook.
+
+Virtual Environment Issues:Verify Python 3.12 is installed (python --version). If activation fails in PowerShell:
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
 
-ValueError: Input y contains NaN:
-Check the notebook output for df['loan_status'].unique().
-If unexpected values appear (e.g., ' Approved', 'rejected'), the notebook’s cleaning steps should handle them. If not, add custom replacements in the notebook.
-
-
-Model/Preprocessor Not Found:
-Verify models/loan_approval_model.pkl and models/preprocessor.pkl exist at E:\dhanush\models.
-Re-run the notebook to generate these files.
-
-
-Frontend Errors:
-Check the browser console (F12 → Console) for JavaScript errors.
-Ensure the Flask backend is running at http://localhost:5000.
-
-
-Low Model Accuracy:
-The logistic regression model typically achieves ~0.90 accuracy. For better performance, consider trying other models (e.g., Random Forest) in the notebook or tuning hyperparameters (e.g., C in LogisticRegression).
-
-
-Virtual Environment Issues:
-Ensure Python 3.12 is installed and accessible (python --version).
-If activation fails in PowerShell, run:Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-
-
-
-
-Port Conflicts:
-If port 5000 (backend) or 8000 (frontend) is in use, check:netstat -aon | findstr :5000
+Port Conflicts:If ports 5000 or 8000 are in use:
+netstat -aon | findstr :5000
 netstat -aon | findstr :8000
 taskkill /PID <pid> /F
-
 
 Or change ports in app.py (e.g., port=5001) and the frontend command (e.g., 8080).
 
 
-
 Contributing
-
-To contribute, fork the repository, make changes, and submit a pull request.
-Report issues or suggest improvements via the GitHub issues tab.
-
+Fork the repository, make changes, and submit a pull request. Report issues or suggest improvements via the GitHub issues tab.
 Acknowledgments
 
-Dataset: Loan Approval Dataset (update with exact source if known)
+Dataset: Loan Approval Dataset (source TBD)
 Libraries: Flask, Scikit-learn, Pandas, NumPy
 
 License
 This project is licensed under the MIT License.
 Contact
-For questions or support, contact the authors:
+For questions or support, contact:
 
-Rahul: [Insert email or GitHub link, if available]
+Rahul: rahulkumargit1
 
